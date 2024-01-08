@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hanyuu.springbootlearn.mapper.ScMapper">
+    <!--namespace:名称空间
+    id:唯一标识
+    resultType:返回值类型
+    #{id}:从传递过来的参数中取出ID值
+    -->
+    <select id="get" resultType="com.hanyuu.springbootlearn.entity.Sc">
+        select * from sc
+        <where>
+            <if test="sid!=null">
+                sc.sid = #{sid}
+            </if>
+
+            <if test="cid!=null">
+                and cid =#{cid}
+            </if>
+        </where>
+    </select>
+</mapper>
